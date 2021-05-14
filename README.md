@@ -1,9 +1,11 @@
 Welcome to my Project
 
-The general repository is intended for updating some projects related to a main project which consists of a PWM controlled by an analog input in the PocketBeagle board
+The repository is intended for updating some "sub-projects" related to a main project which consists of a PWM controlled by an analog input in the PocketBeagle board
 
 PROGRAMS DESCRIPTION
+
 -PWM_ADCcontrolled.py 
+
 Is currently functional. It requires a potenciometer to control a voltage level form 0 to 1.8V in any of the 5 main ADC ports (AIN0, AIN1, AIN2, AIN3, AIN4). Maximun voltage input is 1.8V so a
 circuitry arrange is needed to avoid damaging the computer. The arrange consists of a voltage divider, with a resistor(or resistors) an a potenciometer to vary voltage in full ADC range.
 
