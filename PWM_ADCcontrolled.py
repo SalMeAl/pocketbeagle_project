@@ -4,9 +4,10 @@ import sys
 
 ADC0_PATH = "/sys/bus/iio/devices/iio:device0/in_voltage"
 PWM0_PATH = "/sys/devices/platform/ocp/48300000.epwmss/48300200.pwm/pwm/pwmchip0"
-dc = 0.0
-ADCmax = 4095.0
-period = 10000.0 #1 = 1ns | f=1/period
+dc = 0
+ADCmax = 2768
+c=1e-9
+f =500 #1 = 1ns | f=1/period 20000000.0
 mindc = int(0.05*period)
 
 def readAnalog(number):
@@ -22,8 +23,12 @@ def ctrlPWM(parameter, value, pwm0path=PWM0_PATH +"/pwm-0:0"):
     fo2.close()
     return
 
+def f2t(freq):
+    period = 1/(freq*c)
+    return period
+
 def dct(decimal):
-    dc = period*float(decimal)/ADCmax
+    dc = int(period*float(decimal)/ADCmax)
     if dc<(0.05*period):
         dc = 0.05*period
     elif dc>(0.95*period):
@@ -35,10 +40,11 @@ print("Starting ADC Script")
 #config-pin P1_33 pwm
 print("Reading Analog 0")
 
+period = f2t(f)
 #Set initial PWM values
+ctrlPWM("/period", str(int(period))
+ctrlPWM("/duty_cycle", str(mindc))
 ctrlPWM("/enable", "0")
-ctrlPWM("/period", "10000")
-ctrlPWM("/duty_cycle", "500")
 ctrlPWM("/enable", "1")
 
 while True:
