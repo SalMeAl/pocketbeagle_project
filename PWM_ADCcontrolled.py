@@ -7,7 +7,7 @@ PWM0_PATH = "/sys/devices/platform/ocp/48300000.epwmss/48300200.pwm/pwm/pwmchip0
 dc = 0
 ADCmax = 2768
 c=1e-9
-f =100 #f=1/period --> frequency in hertz| 1 = 1ns |
+f =60 #f=1/period --> frequency in hertz| 1 = 1ns |
 
 def readAnalog(number):
     """This function reads a RAW ADC value from the path"""
@@ -23,8 +23,8 @@ def ctrlPWM(parameter, value, pwm0path=PWM0_PATH +"/pwm-0:0"):
     return
 
 def f2t(freq):
-    period = 1/(freq*c)
-    return period
+    time = 1/(freq*c)
+    return time
 
 def dct(decimal):
     dc = int(period*float(decimal)/ADCmax)
