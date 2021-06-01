@@ -18,6 +18,6 @@ Currently functional, but needs some tweaking.
 
 The same principles and wiring described above for ADCpy.py, form which this script is derived, are the same. The former script allows to control a PWM duty cycle from a voltage level that is read in a analog channel, script allows to vary the PWM frequency as well. PWM output used is PWM0A(silk screen) PIN_36, refer to Diagrama de conexiones.png.
 
-Refer to Esquemático completo.png for a functional application for the current project. The example application is a class-A chopper circuit with pure resitive load which was tested and validated with an osciloscope. Vcc is any voltage source, for wich I personally used a commercial DC-DC voltage converter powersource with a DC input supplied by a diode bridge that rectifies a transformer output. The L7812CV IC was used with an independent diode bridge thus it is possible to mange the optocupler PC123 as high side driver for the power MOSFET.
+Refer to Esquemático completo.png for a functional application for the current project. The example application is a class-A chopper circuit with pure resitive load (RL) which was tested and validated with an osciloscope. Vcc is any voltage source, for wich I personally used a commercial DC-DC voltage converter powersource with a DC input supplied by a diode bridge that rectifies a transformer output. The L7812CV IC was used with an independent diode bridge thus it is possible to mange the optocupler PC123 as high side driver for the power MOSFET.
 
 
