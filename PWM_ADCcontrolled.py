@@ -42,7 +42,7 @@ print("Reading Analog 0")
 
 period = f2t(f)
 #Set initial PWM values
-ctrlPWM("/period", str(int(period))
+ctrlPWM("/period", str(int(period)))
 ctrlPWM("/duty_cycle", str(mindc))
 ctrlPWM("/enable", "0")
 ctrlPWM("/enable", "1")
