@@ -7,8 +7,7 @@ PWM0_PATH = "/sys/devices/platform/ocp/48300000.epwmss/48300200.pwm/pwm/pwmchip0
 dc = 0
 ADCmax = 2768
 c=1e-9
-f =500 #1 = 1ns | f=1/period 20000000.0
-mindc = int(0.05*period)
+f =100 #f=1/period --> frequency in hertz| 1 = 1ns |
 
 def readAnalog(number):
     """This function reads a RAW ADC value from the path"""
@@ -41,6 +40,7 @@ print("Starting ADC Script")
 print("Reading Analog 0")
 
 period = f2t(f)
+mindc = int(0.05*period)
 #Set initial PWM values
 ctrlPWM("/period", str(int(period)))
 ctrlPWM("/duty_cycle", str(mindc))
