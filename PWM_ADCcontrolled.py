@@ -39,9 +39,9 @@ print("Starting ADC Script")
 #config-pin P1_33 pwm
 print("Reading Analog 0")
 
+#Set initial PWM values
 period = f2t(f)
 mindc = int(0.05*period)
-#Set initial PWM values
 ctrlPWM("/period", str(int(period)))
 ctrlPWM("/duty_cycle", str(mindc))
 ctrlPWM("/enable", "0")
